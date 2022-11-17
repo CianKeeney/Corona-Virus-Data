@@ -6,6 +6,10 @@ import { fetchCountries } from '../../api';
 import styles from './CountryPicker.module.css';
 
 const Countries = ({ handleCountryChange }) => {
+  /*
+  On first render, the useState is empty so the page will momentarily render nothing 
+  and once the "setDailyData" has recieved the data about the countries, the page will render with the components and their countries data. 
+  */
   const [countries, setCountries] = useState([]);
 
   useEffect(() => {

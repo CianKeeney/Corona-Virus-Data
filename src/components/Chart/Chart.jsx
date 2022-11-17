@@ -6,6 +6,10 @@ import { fetchDailyData } from '../../api';
 import styles from './Chart.module.css';
 
 const Chart = ({ data: { confirmed, recovered, deaths }, country }) => {
+  /*
+  On first render, the useState is empty so the page will momentarily render nothing 
+  and once the "setDailyData" has recieved the data, the page will render with the components and their specified data. 
+  */
   const [dailyData, setDailyData] = useState({});
 
   useEffect(() => {
@@ -17,6 +21,10 @@ const Chart = ({ data: { confirmed, recovered, deaths }, country }) => {
 
     fetchMyAPI();
   }, []);
+
+  /*
+  The bar chart is conditionally rendered and if there is no data avaliable from the async await function, it will render nothing or null.
+  */
 
   const barChart = (
     confirmed ? (
@@ -32,7 +40,7 @@ const Chart = ({ data: { confirmed, recovered, deaths }, country }) => {
           ],
         }}
         options={{
-          legend: { display: false },
+          legend: { display: true },
           title: { display: true, text: `${country}` },
         }}
       />

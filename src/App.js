@@ -13,8 +13,7 @@ class App extends React.Component {
     data: {},
     country: '',
   }
-
-
+  
   /*
   The purpose of this "componentDidMount" is to fetch a single resource when the component mounts meaning fetch the data from the JSON object.
   This will set the state from empty when the page first renders to the JSON object data once the component mounts. 
